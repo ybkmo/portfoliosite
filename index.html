@@ -26,5 +26,13 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        // JavaScript to dynamically load styles.css
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'styles.css';
+        document.head.appendChild(link);
+    </script>
 </body>
 </html>
