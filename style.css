@@ -1,135 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #39FF14;
+    --secondary-bg: #111111;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
 }
 
 h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 4rem;
+    margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 p {
-    font-size: 16px;
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
 .highlight {
-    color: #39FF14; /* Bright green */
+    color: var(--accent-color);
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .card {
-    background-color: #111111;
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s ease;
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .button {
     display: inline-block;
-    background-color: #39FF14;
-    color: #000000;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.8rem 1.5rem;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 .button:hover {
-    background-color: #2ECC71;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
-.circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #39FF14;
+header {
+    padding: 2rem 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero {
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-.circle i {
-    font-size: 40px;
-    color: #000000;
+.hero h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
 }
 
-.line {
-    height: 2px;
-    background-color: #39FF14;
-    margin: 40px 0;
+.featured-work {
+    margin-top: 5rem;
+}
+
+.work-item {
+    margin-bottom: 5rem;
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+}
+
+.contact {
+    background-color: var(--secondary-bg);
+    padding: 5rem 0;
+    margin-top: 5rem;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 1rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 36px;
+        font-size: 3rem;
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 2.5rem;
     }
 
-    .grid {
-        grid-template-columns: 1fr;
+    .hero h1 {
+        font-size: 3.5rem;
     }
-}
-
-.subscribe-form {
-    margin-top: 30px;
-}
-
-.subscribe-form h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.subscribe-form form {
-    display: flex;
-    gap: 10px;
-}
-
-#emailInput {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-#formMessage {
-    margin-top: 10px;
-    font-style: italic;
 }

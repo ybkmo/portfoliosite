@@ -1,46 +1,78 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const app = express();
+const port = 3000;
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('public')); // Serve static files from 'public' directory
 
-// Serve your static files
-app.use(express.static('public'));
-
-// Email configuration
+// Set up nodemailer transporter
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com',
-        pass: process.env.EMAIL_PASS || 'your-email-password'
-    }
+  service: 'gmail',
+  auth: {
+    user: 'your-email@gmail.com',
+    pass: 'your-email-password'
+  }
 });
 
-app.post('/subscribe', async (req, res) => {
-    const { email } = req.body;
+// Existing '/send-email' endpoint remains unchanged
+app.post('/send-email', (req, res) => {
+  const { name, email, message } = req.body;
 
-    // Validate email
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-        return res.status(400).send('Invalid email address');
+  const mailOptions = {
+    from: 'your-email@gmail.com',
+    to: 'recipient@example.com',
+    subject: 'New message from your portfolio website',
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.status(200).send('Email sent successfully');
+    }
+  });
+});
+
+// New endpoint for email subscriptions
+app.post('/subscribe', (req, res) => {
+  const { email } = req.body;
+
+  // Save email to a file (you might want to use a database in a real-world scenario)
+  fs.appendFile('subscribers.txt', email + '\n', (err) => {
+    if (err) {
+      console.error('Error saving email:', err);
+      res.status(500).send('Error saving email');
+      return;
     }
 
+    // Send confirmation email
     const mailOptions = {
-        from: process.env.EMAIL_USER || 'your-email@gmail.com',
-        to: email,
-        subject: 'Thank you for subscribing!',
-        text: 'Thank you for subscribing to my portfolio updates. I look forward to sharing my work with you!'
+      from: 'your-email@gmail.com',
+      to: email,
+      subject: 'Subscription Confirmation',
+      text: 'Thank you for subscribing to my portfolio updates!'
     };
 
-    try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent: ' + info.response);
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.status(500).send('Error sending confirmation email');
+      } else {
+        console.log('Confirmation email sent: ' + info.response);
         res.status(200).send('Subscription successful');
-    } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).send('An error occurred while subscribing');
-    }
+      }
+    });
+  });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});

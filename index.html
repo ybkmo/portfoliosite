@@ -3,77 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Hirsi - Portfolio</title>
+    <title>BASIC/DEPT®</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mohamed Hirsi</h1>
-            <p class="subtitle">Bringing Your <span class="highlight">Digital Vision</span> to Life</p>
-        </header>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">BASIC/DEPT®</div>
+                <div class="nav-links">
+                    <a href="#work">Work</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        <section class="intro">
-            <div class="intro-text">
-                <h2>Hello, I'm Mohamed</h2>
-                <p>A passionate developer specializing in creating innovative digital solutions.</p>
-                <a href="#contact" class="button">Get in Touch</a>
-            </div>
-            <div class="intro-image">
-                <!-- Add your profile image here -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>BASIC/DEPT® is a global branding and digital design agency</h1>
+                <p>Building products, services, and eCommerce experiences that turn cultural values into company value.</p>
             </div>
         </section>
 
-        <section class="skills">
-            <h2>My <span class="highlight">Skills</span></h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="circle">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Creating responsive and dynamic websites</p>
+        <section id="work" class="featured-work">
+            <div class="container">
+                <h2>Featured Work</h2>
+                <div class="work-item">
+                    <img src="placeholder-image-1.jpg" alt="Project 1">
+                    <h3>Project Name 1</h3>
+                    <p>Brief description of the project and its impact.</p>
                 </div>
-                <div class="card">
-                    <div class="circle">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile Development</h3>
-                    <p>Building cross-platform mobile applications</p>
+                <div class="work-item">
+                    <img src="placeholder-image-2.jpg" alt="Project 2">
+                    <h3>Project Name 2</h3>
+                    <p>Brief description of the project and its impact.</p>
                 </div>
-                <!-- Add more skill cards as needed -->
+                <!-- Add more work items as needed -->
             </div>
         </section>
 
-        <section class="projects">
-            <h2>Featured <span class="highlight">Projects</span></h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Project Name</h3>
-                    <p>Brief description of the project and technologies used.</p>
-                    <a href="projects.html" class="button" target="_blank">View Project</a>
-                </div>
-                <!-- Add more project cards as needed -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>BASIC/DEPT® is a global branding and digital design agency building products, services, and eCommerce experiences that turn cultural values into company value.</p>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Let's <span class="highlight">Connect</span></h2>
-            <p>Interested in working together? Get in touch!</p>
-            <a href="mailto:your.email@example.com" class="button">Contact Me</a>
-            
-            <div class="subscribe-form">
-                <h3>Stay Updated</h3>
-                <p>Subscribe to receive updates about my latest projects:</p>
-                <form id="emailForm">
-                    <input type="email" id="emailInput" placeholder="Enter your email" required>
-                    <button type="submit" class="button">Subscribe</button>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="button">Send Message</button>
                 </form>
-                <p id="formMessage"></p>
             </div>
         </section>
-    </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 BASIC/DEPT®. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
