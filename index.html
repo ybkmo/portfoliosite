@@ -3,71 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BASIC/DEPT®</title>
+    <title>BASIC/DEPT® | Streaming</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">BASIC/DEPT®</div>
-                <div class="nav-links">
-                    <a href="#work">Work</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
-        </div>
+        <nav class="navbar">
+            <img src="logo.png" alt="BASIC/DEPT® Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tv-shows">TV Shows</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#new-popular">New & Popular</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search" class="search-input">
+                <img src="profile-icon.png" alt="Profile" class="profile-icon">
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>BASIC/DEPT® is a global branding and digital design agency</h1>
-                <p>Building products, services, and eCommerce experiences that turn cultural values into company value.</p>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>BASIC/DEPT® Originals</h1>
+                <p>Watch our latest original series and films.</p>
+                <button class="play-btn">Play</button>
+                <button class="more-info-btn">More Info</button>
             </div>
         </section>
 
-        <section id="work" class="featured-work">
-            <div class="container">
-                <h2>Featured Work</h2>
-                <div class="work-item">
-                    <img src="placeholder-image-1.jpg" alt="Project 1">
-                    <h3>Project Name 1</h3>
-                    <p>Brief description of the project and its impact.</p>
-                </div>
-                <div class="work-item">
-                    <img src="placeholder-image-2.jpg" alt="Project 2">
-                    <h3>Project Name 2</h3>
-                    <p>Brief description of the project and its impact.</p>
-                </div>
-                <!-- Add more work items as needed -->
+        <section id="tv-shows" class="content-row">
+            <h2>TV Shows</h2>
+            <div class="content-slider">
+                <!-- Add TV show thumbnails here -->
             </div>
         </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>BASIC/DEPT® is a global branding and digital design agency building products, services, and eCommerce experiences that turn cultural values into company value.</p>
+        <section id="movies" class="content-row">
+            <h2>Movies</h2>
+            <div class="content-slider">
+                <!-- Add movie thumbnails here -->
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <form id="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="button">Send Message</button>
-                </form>
+        <section id="new-popular" class="content-row">
+            <h2>New & Popular</h2>
+            <div class="content-slider">
+                <!-- Add new and popular content thumbnails here -->
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2023 BASIC/DEPT®. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2023 BASIC/DEPT® Streaming. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
         </div>
     </footer>
 
